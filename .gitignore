@@ -3,4 +3,4 @@ saved_models/*
 *.pb
 *.json
 *.csv
-*.txt
+# *.txt
