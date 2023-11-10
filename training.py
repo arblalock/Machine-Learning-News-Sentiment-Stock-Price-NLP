@@ -1,7 +1,6 @@
 # %%
 #Import
 import os
-os.chdir('/workspaces/MachineLearning/News_Sentiment/')
 import matplotlib.pyplot as plt
 import tensorflow_hub as hub
 import pandas as pd
