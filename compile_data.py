@@ -8,7 +8,7 @@ import pandas as pd
 from datetime import datetime
 import requests
 
-STOCK_API_KEY = '9BLW80IYZGHLWCGH'
+STOCK_API_KEY = os.environ.get('STOCK_API_KEY')
 STOCK_SYM = 'SPY'
 STOCK_URL = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={STOCK_SYM}&interval=30min&outputsize=full&apikey={STOCK_API_KEY}'
 MODEL_SAVE_PATH = './saved_models/'
