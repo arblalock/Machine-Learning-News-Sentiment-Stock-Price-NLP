@@ -4,21 +4,26 @@ Machine learning model which processes news sentiment using natural language pro
 
 ### General notes
 
-This was mainly organized for personal use so if you would like to use it you’ll need to make some modifications. Otherwise this repo can mainly just be used for general reference. If you would like to run it you'll need your own news and stock API access (I used free ones you'll see in the scripts). Be sure to set your own environment variables and update any file paths.
+This was mainly organized for personal use but feel free to use for your own reference! If you would like to run it you'll need your own news and stock API access (I used free ones you'll see in the scripts). Be sure to set your own environment variables and update any file paths.
 
-### Data prep
+### News Loading
 
-- Scripts: compile_data.py, news_load.py
-- The first two steps are getting the stock price data using compile_data.py and then loading news articles/headlines from news_load.py.
+- Script: news_load.py
+- The first step is loading news articles/headlines from news_load.py. The purpose of this script is to download news snippets and format them for the sentiment training.
 
-- The news api used here is limited in how much text it gives because it's free. Using a paid service such as Bloomberg news would most likely significantly improve training.
+### Sentiment Training
 
-### Training
+- Script: sentiment_training.py.
+- This script trains the sentiment NLP model for use in the stock price prediction
+- For sentiment training I used the Stanford Sentiment Analysis training set: [SSA](https://www.kaggle.com/datasets/atulanandjha/stanford-sentiment-treebank-v2-sst2/). There are several formats, I used the one they label as "dictionary".
 
-- Script: training.py.
-- For sentiment training I used the Stanford Sentiment Analysis training set. I don't have the original link but it may be this one: [SSA](https://www.kaggle.com/datasets/atulanandjha/stanford-sentiment-treebank-v2-sst2/). There are several formats, I used the one they label as "dictionary"
+### Compile Data
 
-### Prediction
+- Script: compile_data.py
+- This script generates/organizes the news sentiment and stock data and prepares it for model training
 
-- Script: prediction.py
+### Price Model Training/Prediction
+
+- Script: stock_price_model.py
+- This is used for the stock price model training and prediction based on the data prepared in the previous steps
 - You can set predictors and outcome variables at top. I was mainly looking at whether prices and news headlines at beginning of day predicted prices at the end of the day
